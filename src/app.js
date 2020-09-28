@@ -46,6 +46,22 @@ app.get('/weather', (req, res) => {
   });
 });
 
+app.get('/help/*', (req, res) => {
+  res.render('404', {
+    title: 'Error 404',
+    message: 'Help article not found.',
+    name: 'Bartek Mogielnicki',
+  });
+});
+
+app.get('*', (req, res) => {
+  res.render('404', {
+    title: 'Error 404',
+    message: 'Page not found.',
+    name: 'Bartek Mogielnicki',
+  });
+});
+
 app.listen(3000, () => {
   console.log('Server is up on port 3000.');
 });
